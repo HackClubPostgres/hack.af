@@ -17,8 +17,9 @@ export default async function(req: VercelRequest, res: VercelResponse) {
 	})
 
 	if (!result) {
-		// backwards compatibility: serve unknown slugs with https://goo.gl
-		return res.redirect(302, "https://goo.gl/" + slug)
+		return res.status(404).send("Not found")
+		// // backwards compatibility: serve unknown slugs with https://goo.gl
+		// return res.redirect(302, "https://goo.gl/" + slug)
 	}
 
 	// log access using `result.slug` for record ID
@@ -34,6 +35,7 @@ export default async function(req: VercelRequest, res: VercelResponse) {
 		query,
 	)
 
+	res.setHeader('Cache-Control', 's-maxage=600');
 	res.redirect(302, result.url + resultQuery)
 
 	// Increment clicks
