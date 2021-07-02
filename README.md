@@ -1,4 +1,4 @@
-# hack.af
+# go.hack.af
 
 > [Hack Club](https://hackclub.com)’s Postgres-Based Link Shortener
 
