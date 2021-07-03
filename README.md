@@ -18,12 +18,16 @@ Otherwise, you'll need:
 ### Deployment
 
 - Create a postgres database
-- Copy the `DATABASE_URL`
-- Add the `DATABASE_URL` to your vercel settings
+- Add its `DATABASE_URL` to your environment
 - Run `npx prisma migrate deploy` to configure your database
-- Deploy with `npx vercel`
 
-## Using
+### Options
+
+- Set `LOGGING` to `on` if you want to enable logging, `off` if otherwise.
+- Set `BOT_LOGGING` to `on` if you want to enable logging for crawlers, `off` if otherwise.
+- Set `CACHE_EXPIRATION` to the number of seconds you want the local cache to be valid.
+
+## Usage
 
 All links will be routed through a 302 (Temporary Redirect). Simply visit `example.com/slug` to get redirected.
 
